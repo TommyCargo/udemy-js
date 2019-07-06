@@ -1,4 +1,4 @@
-if (2*4 == 8) {
+/*if (2*4 == 8) {
     console.log("True!");
 }
 
@@ -14,7 +14,7 @@ if (num > 40) {
 } else {
     console.log("False!");
 }
-(num > 40) ? console.log("TrueT!") : console.log("False!");
+(num > 40) ? (console.log("TrueT!")) : (console.log("False!"));
 // ^ тернарный оператор
 
 switch (num) {
@@ -47,3 +47,34 @@ for (let i = 1; i < 10; i++){
     }
     console.log(i);
 }
+let fNum = 20;
+function showMessage(text) {
+    console.log(text);
+    console.log(fNum);   
+}
+
+showMessage("Hello World!");
+console.log(fNum);
+*/
+if ({} == []) {
+     console.log("YES");
+    } else {
+         console.log("NO");
+}
+
+var obj =  {}, arr = [];
+obj == 0;
+arr == 0;
+if (obj == arr) {
+    console.log("0 YES");
+   } else {
+        console.log("0 NO");
+}
+console.log([] == {});
+/*
+let calc = function(a, b) {
+    return (a + b);
+}
+*/
+let calc = (a, b) => { a+b; };
+
