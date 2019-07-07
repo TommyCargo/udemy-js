@@ -1,3 +1,8 @@
+// let var const 
+// hoisting
+// var всплывает (hoist) и будет undefined до объявления ограничено функциями
+// let видна только в scope ограниченном {} объявится только в момент определения, но не до
+
 let soldier = {
     health: 400,
     armor: 100
