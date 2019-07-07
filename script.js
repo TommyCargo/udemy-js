@@ -1,57 +1,94 @@
-'use strict';
-/*
-a = 5;
-console.log(a);
-*/
-let arr = ['plum.png', 'orange.png', 'apple.png'];
+//'use strict';
 
-console.log(arr[0]);
+let money, time;
 
-//alert("Hello world!");
-/*
-let answer = confirm('Is that so?');
+function start() {
+    money = +prompt("Ваш бюджет на месяц?", "");
+    time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
-console.log(answer);
-*/
-//let answer = prompt("Есть ли Вам 18?", "Да");
-let answer = +prompt("Есть ли Вам 18?", "Да");
-// + перед prompt преобразует string в number
-console.log(answer);
-console.log(typeof(answer));
-console.log(typeof(arr));
-
-let incr = 10,
-    decr = 10;
-
-console.log(incr++);
-console.log(decr--);
-console.log(++incr);
-console.log(--decr);
+    while(isNaN(money) || money == "" || money == null) {
+        money = +prompt("Ваш бюджет на месяц?", "");
+    }
+}
+start();
 
 
-console.log(5%2);
+let appData = {
+    budget: money,
+    timeData: time,
+    expenses:{},
+    optionalExpenses:{},
+    income: [],
+    savings: true,
+    chooseExpenses: function() {
+        for (let i = 0; i < 2; i++){
+            let a = prompt("Введите обязательную статью расходов в этом месяце", "");
+            let b = +prompt("Во сколько обойдется?", "");
+            if ((typeof(a)) === 'string' && (typeof(a)) != null && 
+            (typeof(b)) != null && a != '' && b != '' && a.length < 50) {
+                console.log("Done!");
+                appData.expenses[a] = b;
+            } else {
+                console.log("Skip!");
+                continue;
+            }
+            
+        }
+    },
+    determineDayBudget: function() {
+        appData.moneyPerDay = (appData.budget/30).toFixed();
 
-console.log("2" == 2);
-console.log("2" === 2);
+        alert("Ежедневный бюджет: " + appData.moneyPerDay);
+    },
+    determineLevel: function() {
+        if (appData.moneyPerDay < 100){
+            console.log("Минимальный уровень достатка");
+        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
+            console.log("Средний уровень достатка");
+        } else if (appData.moneyPerDay > 2000){
+            console.log("Высокий уровень достатка");
+        } else {
+            console.log("Произошла ошибка");
+        }
+    },
+    checkSavings: function() {
+        if (appData.savings == true) { 
+            // ?? if (appData.savings) {
+            let save = +prompt("Какова сумма накоплений?", "");
+            let percent = +prompt("Под какой процент?", "");
+    
+            appData.monthIncome = save/100/12*percent;
+            alert("Доход в месяц с вашего депозита: " + appData.monthIncome);
+        }
+    },
+    chooseOptExpenses: function() {
+        // Функция для определения необязательных расходов
+        for (let i = 1; i <= 3; i++) {
+            let questionOptExpenses = prompt("Статья необязательных расходов?");
+            appData.optionalExpenses[i] = questionOptExpenses;
+            console.log(appData.optionalExpenses);
+        }
+    },
+    chooseIncome: function() {
+        let items = prompt('Что принесет дополнительный доход? (Перечислите через запятую).','');
 
-let isTrue = true,
-    isFalse = false;
-console.log("isTrue && !isFalse");
-console.log(isTrue && !isFalse);
+        while (items == "" || items == null || !(typeof(items) === "string") || !(items instanceof String)) {
+            items = prompt('Что принесет дополнительный доход? (Перечислите через запятую).','');
+        }
 
+        appData.income = items.split(', ');
+        //appData.income.push(prompt('Может то-то еще?', ''));
+        appData.income.sort();
+        
+        console.log("Способы доп. заработка: ");
+        appData.income.forEach(function(item, i) {
+            console.log((i+1) + ': ' + item);
+        });
+    }
+};
+appData.chooseIncome();
 
-let x = 10;
-console.log("isTrue || ++x");
-console.log(x);
-console.log(isTrue || (++x));
-console.log(x);
-
-console.log("++x || isFalse");
-console.log(x);
-console.log((++x) || isFalse);
-console.log(x);
-
-console.log("ifFalse || x++");
-console.log(x);
-console.log(isFalse || (x++));
-console.log(x);
+console.log("Наша программа включает в себя данные: ");
+for (let key in appData) {
+    console.log(appData.key);
+}

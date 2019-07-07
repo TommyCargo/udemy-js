@@ -1,3 +1,5 @@
+// функции, определение, callback, control flow
+
 function learnJS(lang, callback) {
     console.log("Я учу: " + lang);
     callback();
@@ -73,7 +75,7 @@ arr = ["first", 2, 3, "four", 5];
 
 arr.forEach(function(item, i, mass) {
     console.log(i + ': ' + item + " (массив: " + mass + ')');
-})
+});
 
 console.log(arr);
 
