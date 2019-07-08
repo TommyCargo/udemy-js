@@ -33,14 +33,20 @@ heart.forEach(function(item, i, hearts) {
 let div = document.createElement('div');
 let text = document.createTextNode('Тут был я');
 div.classList.add('black');
+// добавляет класс .black
 
 //document.body.appendChild(div);
+// вставляет div в конец body
 //wrapper.appendChild(div);
+// вставляет div в конец wrapper
 
 //div.innerHTML = '<h1>Hello World!</h1>';
 div.textContent = 'Hello World!';
+div.style.fontSize = 'small';
 
 document.body.insertBefore(div, circle[0]);
+// что вставить и перед чем
+
 document.body.removeChild(circle[1]);
 wrapper.removeChild(heart[1]);
 
@@ -48,3 +54,9 @@ document.body.replaceChild(btn[1], circle[1]);
 
 console.log(div);
 
+/*
+
+.setAttribute('class', 'vydelit');
+.removeAttribute('class');
+
+*/
