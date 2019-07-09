@@ -60,3 +60,53 @@ console.log(div);
 .removeAttribute('class');
 
 */
+// https://habr.com/ru/post/459166/ 
+// пример на замыкания
+debugger
+function main() {
+    var a = 100;
+
+    function foo() {
+        var b = a + 50;
+
+        return b;
+    }
+
+    function bar() {
+        var a = 40;
+
+        return foo();
+    }
+
+    function baz() {
+        return foo() + bar();
+    }
+
+    return baz();
+}
+main();
+
+// https://habr.com/ru/post/459166/ 
+// пример на мутацию
+debugger
+function createFuncs() {
+    var a = 5;
+
+    function first() {
+        console.log(`first.before-update: ${a}`);
+        a += 1;
+        console.log(`first.after-update: ${a}`);
+    }
+    function second() {
+        console.log(`second.before-update: ${a}`);
+        a += 1;
+        console.log(`second.after-update: ${a}`);
+    }
+
+    return { first, second };
+}
+
+const funcs = createFuncs();
+funcs.first();
+funcs.second();
+funcs.first();
