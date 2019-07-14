@@ -14,6 +14,19 @@ console.log("getElementsByTagName('button')[0]; ", btn[0]);
 console.log("querySelectorAll('.heart'); ", heart);
 console.log("querySelector('.heart'); one heart: ", oneHeart);
 
+// ============================ EVENT HANDLERS ===============================
+
+btn[0].addEventListener('click', function(event) {
+    console.log("Button " + event.target + " pressed. Event: " + event.type + " happened.");
+});
+
+
+heart.forEach(function(item) {
+    item.addEventListener('mouseleave', function(e) {
+        console.log("Mouse leave " + e.target);
+    });
+});
+
 box.style.backgroundColor = 'blue';
 btn[1].style.borderRadius = '100%';
 
