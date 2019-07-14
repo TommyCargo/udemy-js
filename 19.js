@@ -5,15 +5,15 @@ let heart = document.querySelectorAll('.heart');
 let oneHeart = document.querySelector('.heart');
 let wrapper = document.querySelector('.wrapper');
 // в отличии от ALL вернет первый элемент
-/*
-console.log(box);
-console.log(btn);
-console.log(btn[0]);
-console.log(typeof(btn));
-console.log(circle[2]);
-console.log(heart);
-console.log(oneHeart);
-*/
+
+//console.log(box);
+console.log("getElementsByTagName('button'); ", btn);
+console.log("getElementsByTagName('button')[0]; ", btn[0]);
+//console.log(typeof(btn));
+//console.log(circle[2]);
+console.log("querySelectorAll('.heart'); ", heart);
+console.log("querySelector('.heart'); one heart: ", oneHeart);
+
 box.style.backgroundColor = 'blue';
 btn[1].style.borderRadius = '100%';
 
@@ -62,7 +62,7 @@ console.log(div);
 */
 // https://habr.com/ru/post/459166/ 
 // пример на замыкания
-debugger
+debugger;
 function main() {
     var a = 100;
 
@@ -88,7 +88,7 @@ main();
 
 // https://habr.com/ru/post/459166/ 
 // пример на мутацию
-debugger
+debugger;
 function createFuncs() {
     var a = 5;
 
