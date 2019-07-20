@@ -35,7 +35,7 @@ function setClock(id, endTime) {
         minutes.textContent = t.minutes < 10 ? ('0' + t.minutes + 'м. ') : (t.minutes + 'м. ');
         seconds.textContent = t.seconds < 10 ? ('0' + t.seconds + 'с.') : (t.seconds + 'с.');
 
-        
+
 
 
         if (t.total <= 0) {
@@ -49,3 +49,32 @@ function setClock(id, endTime) {
 }
 
 setClock('timer', deadLine);
+
+
+// Modal
+
+let more = document.querySelector('.more'),
+    overlay = document.querySelector('.overlay'),
+    close = document.querySelector('.popup-close');
+
+more.addEventListener('click', showModal);
+
+close.addEventListener('click', function () {
+    overlay.style.display = 'none';
+    more.classList.remove('more-splash');
+    document.body.style.overflow = '';
+});
+
+function showModal() {
+    overlay.style.display = 'block';
+    this.classList.add('more-splash');
+    document.body.style.overflow = 'hidden';
+}
+
+let showMore = document.querySelectorAll('.description-btn'),
+    index, button;
+
+for (index = 0; index < showMore.length; index++) {
+    button = showMore[index];
+    button.addEventListener('click', showModal);
+}
