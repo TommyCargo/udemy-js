@@ -1,4 +1,4 @@
-let json = '{"id":2}'
+let json = '{"id":2}';
 
 try {
     let user = JSON.parse(json);
