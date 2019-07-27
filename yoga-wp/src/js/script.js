@@ -1,8 +1,11 @@
+//require('es6-promise').polyfill();
+import 'nodelist-foreach-polyfill';
+require('formdata-polyfill');
 /*window.addEventListener('DOMContentLoaded', function() {
 
 });*/
-let tabs = require('./parts/tPlug.js');
-
+//let tabs = require('./parts/tPlug.js');
+import {tabs} from './parts/tPlug';
 tabs('.info-header-tab', '.info-header', '.info-tabcontent');
 
 // Timer 

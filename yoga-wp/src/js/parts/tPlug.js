@@ -42,4 +42,5 @@ function tabs(infoHeaderTabClassSelector, infoHeaderParentClassSelector, infoTab
     });
 }
 
-module.exports = tabs;
+//module.exports = tabs; // CommonJS
+export {tabs};  // ES6/2015
